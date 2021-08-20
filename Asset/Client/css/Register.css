@@ -1,0 +1,102 @@
+﻿/* body */
+.body-info {
+    background-image: url('../img/img-login-regsiter.jpg');
+}
+/* login */
+.register-form {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.register-content {
+    padding-top: 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 0.8em;
+    font-weight: 700;
+}
+register-form .user-name{
+    height:70px;
+}
+.user-name {
+    display: flex;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+}
+
+    .user-name > p{
+        width:30%;
+    }
+    .user-name .input1 {
+        flex: 1;
+        padding-right: 80px;
+    }
+    .user-name .label{
+        color:white;
+        font-size:18px;
+        font-family: Arial;
+    }
+
+    .user-name .danger{
+        color:red;
+        width:100px;
+    }
+
+.register-form .input {
+    width: 70%;
+    margin-top: 16px;
+    margin-left: 86px;
+    background: #fff;
+    color: #333;
+    font-size: 26px;
+    padding: 0.3em 1.2em;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+.remember {
+    margin-left:50px;
+    margin-top: 32px;
+    display: flex;
+    color: #fff;
+}
+
+    .remember > span {
+        cursor: pointer;
+    }
+
+.forgot > a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.checkbox-lb {
+    margin-right: 8px;
+}
+
+.checkbox-login {
+    display: flex;
+}
+
+.copyright > p {
+    margin-top: 64px;
+    padding: 30px 0px;
+    text-align: center;
+    color: #fff;
+}
+.remember .form-group {
+    margin-left:78px;
+}
+.btn-dangky > input{
+    width:70px;
+    height:30px;
+}
+/*  */

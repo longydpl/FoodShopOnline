@@ -1,0 +1,128 @@
+﻿@model List<FoodShopOnline.Models.Dao.CartItem>
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    decimal S = 0;
+}
+<link href="~/Asset/Client/css/Payment.css" rel="stylesheet" />
+<script src="~/Asset/Client/js/controller/CartController.js"></script>
+<div class="content">
+    <p>Thanh toán đơn hàng</p>
+    <div class="section-group">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Tên SP</td>
+                    <td>Ảnh SP</td>
+                    <td>Số lượng</td>
+                    <td>Đơn giá</td>
+                    <td>Thành tiền</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    S += item.Quantity * item.Product.Price.GetValueOrDefault(0);
+                    <tr>
+                        <td><a>@item.Product.Name</a></td>
+                        <td><img src="~/Asset/img/@item.Product.Image" alt="@item.Product.Name" style="width:90px; height:90px" /></td>
+                        <td><input type="text" class="txtQuantity" data-id="@item.Product.ID" value="@item.Quantity" /></td>
+                        <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+                        <td>@((item.Quantity * item.Product.Price.GetValueOrDefault(0)).ToString("N0"))</td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="6">
+                        <div class="line"></div>
+                    </td>
+                </tr>
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4"><p>Tổng tiền</p></td>
+                    <td>@S</td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="section-group section-group1">
+        @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+        {
+            var user = (FoodShopOnline.Common.UserLogin)ViewBag.User;
+            if (user != null)
+            {
+                <table >
+                    <tr class="form-group">
+                        <td class="lb">Người nhận</td>
+                        <td class="control">
+                            <input name="shipName" class="form-control" value="@user.Name" />
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td class="lb">Địa chỉ</td>
+                        <td class="control">
+                            <input name="address" class="form-control" value="@user.Address" />
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td class="lb">Điện thoại</td>
+                        <td class="control">
+                            <input name="phone" class="form-control" value="@user.Phone" />
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td class="lb">Email</td>
+                        <td class="control">
+                            <input name="email" class="form-control" value="@user.Email" />
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit" class="btn">Thanh toán</button>
+                <a href="/gio-hang">Trở lại giỏ hàng</a>
+            }
+            else
+            {
+                <table>
+                    <tr class="form-group">
+                        <td class="lb">Người nhận</td>
+                        <td class="control">
+                            <input name="shipName" class="form-control"  />
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td class="lb">Địa chỉ</td>
+                        <td class="control">
+                            <input name="address" class="form-control"  />
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td class="lb">Điện thoại</td>
+                        <td class="control">
+                            <input name="phone" class="form-control"  />
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td class="lb">Email</td>
+                        <td class="control">
+                            <input name="email" class="form-control"/>
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit" class="btn">Thanh toán</button>
+                <a href="/gio-hang">Trở lại giỏ hàng</a>
+            }
+        }
+    </div>
+</div>
+@if (ViewBag.Error != null)
+            {
+                <br />
+                <div class="alert alert-danger" role="alert">@ViewBag.Error</div>
+            }
+

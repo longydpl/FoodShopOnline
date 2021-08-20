@@ -1,0 +1,71 @@
+﻿@model List<FoodShopOnline.Models.Dao.CartItem>
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    decimal S = 0;
+}
+<link href="~/Asset/Client/css/Cart.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Asset/Client/js/controller/CartController.js"></script>
+}
+<div class="content">
+    <div class="section-group">
+        @if (Model.Count > 0)
+        {
+            <p>Thông tin giỏ hàng</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Tên SP</td>
+                        <td>Ảnh SP</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td>Xóa</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        S += item.Quantity * item.Product.Price.GetValueOrDefault(0);
+                        <tr>
+                            <td><a>@item.Product.Name</a></td>
+                            <td><img src="~/Asset/img/@item.Product.Image" alt="@item.Product.Name" style="width:120px; height:100px" /></td>
+                            <td style="width:120px; height:100px"><input type="text" class="txtQuantity" data-id="@item.Product.ID" value="@item.Quantity" /></td>
+                            <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+                            <td>@((item.Quantity * item.Product.Price.GetValueOrDefault(0)).ToString("N0"))</td>
+                            <td><a href="#" data-id="@item.Product.ID" class="btn-delete">Xóa</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <div class="line"></div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5"><p>Tổng tiền</p></td>
+                        <td >@S</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="cart-btn">
+                <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
+                <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+                <button id="btnDeleteAll" class="btn">Xoá giỏ hàng</button>
+                <button id="btnPayment" class="btn">Thanh toán</button>
+            </div>
+          
+        }
+        else
+        {
+            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+    </div>
+</div>
+

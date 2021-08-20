@@ -1,9 +1,10 @@
-namespace FoodShopOnline.Models.EF
+﻿namespace FoodShopOnline.Models.EF
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("Product")]
     public partial class Product
@@ -17,30 +18,36 @@ namespace FoodShopOnline.Models.EF
 
         public long ID { get; set; }
 
+
         [StringLength(250)]
+        [Display(Name = "Tên sản phấm")]
         public string Name { get; set; }
 
         [StringLength(10)]
+        [Display(Name = "Mã sản phẩm")]
         public string Code { get; set; }
 
         [StringLength(250)]
         public string MetaTitle { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Mô tả")]
         public string Description { get; set; }
 
         [StringLength(250)]
+        [Display(Name = "Ảnh sản phẩm")]
         public string Image { get; set; }
-
+        [Display(Name = "Giá sản phẩm")]
         public decimal? Price { get; set; }
-
+        [Display(Name = "Giá giảm giá")]
         public decimal? PromotionPrice { get; set; }
-
+        [Display(Name = "Số lượng")]
         public int? Quantity { get; set; }
 
         public long? CategoryID { get; set; }
 
         [Column(TypeName = "ntext")]
+        [Display(Name = "Chi tiết")]
         public string Detail { get; set; }
 
         public DateTime? CreatedDate { get; set; }
@@ -50,7 +57,6 @@ namespace FoodShopOnline.Models.EF
 
         public DateTime? ModifliedDate { get; set; }
 
-        [Required]
         [StringLength(250)]
         public string ModifliedBy { get; set; }
 
@@ -59,9 +65,9 @@ namespace FoodShopOnline.Models.EF
 
         [StringLength(250)]
         public string MetaDescription { get; set; }
-
+        [Display(Name = "Tình trạng")]
         public bool? Status { get; set; }
-
+        [Display(Name = "Số lượt xem")]
         public int? CountView { get; set; }
 
         [StringLength(500)]

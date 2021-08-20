@@ -1,0 +1,64 @@
+﻿@model PagedList.IPagedList<FoodShopOnline.ViewModel.Products>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Asset/Client/css/ALLProducts.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Món ăn mới";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+<div class="duongdan">
+    <a href="/trang-chu" title="Trang chủ">
+        Trang chủ
+    </a>
+    <a href="/mon-dac-biet" title="Món đặc biệt">
+        Món đặc biệt
+    </a>
+</div>
+
+<br />
+
+<div class="trang">
+    <p class="text">
+        Từ @ViewBag.Start đến @ViewBag.End (trong tổng số @ViewBag.Count sản phẩm)
+    </p>
+    <div class="danh-sach">
+        @Html.PagedListPager(Model, page => Url.Action("SpecialProducts", "Product", new { page }))
+    </div>
+</div>
+
+<div class="danh-sach-sp">
+    @foreach (var item in Model)
+    {
+        string decr = item.Description.Substring(0, item.Description.Length - 30);
+        <div class="tie">
+            <div class="tie-indent">
+                <div class="wrapper-top">
+                    <div class="left">
+                        <a href="@item.Url"><img src="~/Asset/img/@item.Image" alt="@item.ProductName" /></a>
+                    </div>
+                    <div class="right">
+                        <p>@item.CreateDate</p>
+                        <div class="line"></div>
+                        <a href="@item.Url">@item.ProductName</a>
+                        <p class="price">@item.Price đ</p>
+                        <a href="/them-gio-hang?productID=@item.ID&quantity=1" class="input">Mua hàng</a>
+                    </div>
+                </div>
+                <div class="wrapper-bot">
+                    <p style="font-weight:bold">Thông tin chi tiết</p>
+                    <div class="description">
+                        @decr
+                        ...<a href="@item.Url">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="trang">
+    <div class="danh-sach-bot">
+        @Html.PagedListPager(Model, page => Url.Action("SpecialProducts", "Product", new { page }))
+    </div>
+</div>

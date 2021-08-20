@@ -4,21 +4,15 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("User")]
     public partial class User
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            Orders = new HashSet<Order>();
-        }
-
         public long ID { get; set; }
-
-        [Required(ErrorMessage = "Tài khoản trống")]
+        [Required (ErrorMessage ="Tài khoản trống")]
         [StringLength(50)]
-        [Display(Name = "Tài khoản")]
+        [Display (Name ="Tài khoản")]
         public string Username { get; set; }
         [Required(ErrorMessage = "Mật khẩu trống")]
         [StringLength(32)]
@@ -35,10 +29,9 @@
 
         [StringLength(50)]
         public string Email { get; set; }
-
-        [Required(ErrorMessage = "Điện thoại trống")]
+        [Required(ErrorMessage = "Số điện thoại trống")]
         [StringLength(10)]
-        [Display(Name = "Điện thoại")]
+        [Display(Name = "Số điện thoại")]
         public string Phone { get; set; }
         [Display(Name = "Tình trạng")]
         public bool Status { get; set; }
@@ -52,8 +45,5 @@
 
         [StringLength(250)]
         public string ModifliedBy { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
     }
 }

@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Asset/Client/css/StyleHome.css">
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header id="header">
+        <div id="header-top">
+            <ul class="nav-top">
+                <li><a href="/trang-chu">TRANG CHỦ</a></li>
+                <li><a href="/gioi-thieu">GIỚI THIỆU</a></li>
+                <li><a href="/tat-ca-mon-an">TẤT CẢ MÓN ĂN</a></li>
+                <li><a href="/tin-tuc">TIN TỨC</a></li>
+                <li><a href="/chinh-sach">CHÍNH SÁCH</a></li>
+                <li><a href="/ban-do">BẢN ĐỒ</a></li>
+                <li><a href="/lien-he">LIÊN HỆ</a></li>
+            </ul>
+            @{
+                var session = (FoodShopOnline.Common.UserLogin)Session[FoodShopOnline.Common.CommonConstants.CLIENT_SESSION];
+            }
+            @if (session == null)
+            {
+                <div class="account">
+                    <div class="login">
+                        <a href="/dang-nhap">Đăng Nhập</a>
+                    </div>
+                    <div class="registration">
+                        <a href="/dang-ky">Đăng ký</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="user">
+                    <img class="img-profile rounded-circle"
+                         src="~/Asset/img/undraw_profile.svg">
+                    <a>@session.Name</a>
+                    <div class="btn-logout">
+                        @Html.ActionLink("Đăng xuất", "Logout", "User", null, new { @class = "txt" })
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="header-mid">
+            <div class="search">
+                <form action="/tim-kiem" method="post">
+                    <input type="text" name="keyword" class="input1">
+                    <input type="submit" class="button1" value="Tìm kiếm" />
+                </form>
+            </div>
+            <a href="#" class="banner">
+                <img src="~/Asset/Client/img/banner.png">
+            </a>
+            @{ Html.RenderAction("HeaderCart", "Home");}
+        </div>
+        @{Html.RenderAction("ProductCategory", "Home");}
+    </header>
+    <!-- danh sách đồ ăn -->
+    <div class="food-info">
+        @RenderBody()
+    </div>
+    <!-- footer -->
+    <div class="footer">
+        <div class="inner">
+            <div class="footer-menu">
+                <ul class="nav-footer">
+                    <li><a href="/trang-chu">TRANG CHỦ</a></li>
+                    <li><a href="/mon-moi">MÓN ĂN MỚI</a></li>
+                    <li><a href="/mon-dac-biet">MÓN ĂN ĐẶC BIỆT</a></li>
+                    <li><a href="/gioi-thieu">GIỚI THIỆU</a></li>
+                    <li><a href="/tin-tuc">TIN TỨC</a></li>
+                    <li><a href="/chinh-sach">CHÍNH SÁCH</a></li>
+                    <li><a href="/ban-do">BẢN ĐỒ</a></li>
+                    <li><a href="/lien-he">LIÊN HỆ</a></li>
+                    <li><a href="/phi-giao-hang">PHÍ GIAO HÀNG</a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <div class="footer-map">
+                    <img src="~/Asset/Client/img/map-web.png" alt="Alternate Text" />
+                </div>
+                <div class="footer-fb">
+                    <div class="footer-fb-top">
+                        <div class="fooder-logo">
+                            <a href="trang-chu" rel="nofollow">
+                                <img src="~/Asset/Client/img/logo.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="logo-name">
+                            <a href="trang-chu">
+                                Quà Vặt Việt
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <p>Số ĐKKD 01E8024878</p>
+                    <p>   UBND Q. Đống Đa cấp ngày 15/11/2017</p>
+                    <p> Người đại diện: Đỗ Công Bắc</p>
+                    <p>Số 50, Ngõ 121 Chùa Láng, Đống Đa, Hà Nội</p>
+                    <p>Email: kinhdoanh@quavatviet.vn / info@quavatviet.vn</p>
+                    <p>Website: www.quavatviet.com / www.quavatviet.vn</p>
+                    <p>Facebook: www.facebook.com/quavatviet</p>
+                    <p>Điện thoại: 1900.0090</p>
+                    1.<a href="#"> Chính sách và quy định</a> -
+                    2.<a href="#"> Chính sách bảo mật thông tin</a>
+                </div>
+            </div>
+            <div class="logo-bct">
+                <img src="~/Asset/Client/img/logo-gct.png" alt="">
+            </div>
+            <div class="footer-end">
+                <p class="line"></p>
+                <p class="underline"> Từ Khóa: </p>
+            </div>
+
+        </div>
+    </div>
+    <div class="contact-web">
+        <div class="contact-left">
+            <img src="~/Asset/Client/img/contact-left.png" alt="">
+        </div>
+        <div class="contact-right">
+            <img src="~/Asset/Client/img/contact-right.png" alt="">
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

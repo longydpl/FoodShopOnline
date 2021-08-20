@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -41,7 +42,7 @@ namespace FoodShopOnline.Areas.Admin.Controllers
             {
                 products = products.OrderBy(p => p.Name);
             }
-            int pageSize = 5;
+            int pageSize = 15;
             int pageNumber = (page ?? 1);
 
             return View(products.ToPagedList(pageNumber,pageSize));
@@ -76,15 +77,33 @@ namespace FoodShopOnline.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Name,Code,MetaTitle,Description,Image,Price,PromotionPrice,Quantity,CategoryID,Detail,CreatedDate,CreateBy,ModifliedDate,ModifliedBy,MetaKeywords,MetaDescription,Status,CountView,Tags")] Product product)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Products.Add(product);
-                db.SaveChanges();
+                product.Image = "";
+                var f = Request.Files["ImageFile"];
+                if(f != null && f.ContentLength > 0)
+                {
+                    string fileName = System.IO.Path.GetFileName(f.FileName);
+                    string uploadPath = Server.MapPath("~/Asset/img/" + fileName);
+                    f.SaveAs(uploadPath);
+                    product.Image = fileName;
+                }
+                product.CreatedDate = DateTime.Now;
+                if (ModelState.IsValid)
+                {
+                    db.Products.Add(product);
+                    db.SaveChanges();         
+                }
+
+                ViewBag.CategoryID = new SelectList(db.ProductCategories, "ID", "Name", product.CategoryID);
                 return RedirectToAction("Index");
             }
-
-            ViewBag.CategoryID = new SelectList(db.ProductCategories, "ID", "Name", product.CategoryID);
-            return View(product);
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Lỗi nhập dữ liệu " + ex.Message;
+                return View(product);
+            }
+            
         }
 
         // GET: Admin/Products/Edit/5
@@ -110,14 +129,30 @@ namespace FoodShopOnline.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Name,Code,MetaTitle,Description,Image,Price,PromotionPrice,Quantity,CategoryID,Detail,CreatedDate,CreateBy,ModifliedDate,ModifliedBy,MetaKeywords,MetaDescription,Status,CountView,Tags")] Product product)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
+                product.Image = "";
+                var f = Request.Files["ImageFile"];
+                if(f!=null && f.ContentLength > 0)
+                {
+                    string fileName = System.IO.Path.GetFileName(f.FileName);
+                    string uploadPath = Server.MapPath("~/Asset/img/" + fileName);
+                    f.SaveAs(uploadPath);
+                    product.Image = fileName;
+                }
+                if (ModelState.IsValid)
+                {
+                    db.Entry(product).State = EntityState.Modified;
+                    db.SaveChanges();                    
+                }
+                ViewBag.CategoryID = new SelectList(db.ProductCategories, "ID", "Name", product.CategoryID);
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryID = new SelectList(db.ProductCategories, "ID", "Name", product.CategoryID);
-            return View(product);
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Lỗi nhập dữ liệu " + ex.Message;
+                return View(product);
+            }
         }
 
         // GET: Admin/Products/Delete/5

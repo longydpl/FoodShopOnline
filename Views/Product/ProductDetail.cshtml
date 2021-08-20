@@ -1,0 +1,82 @@
+﻿@model FoodShopOnline.Models.EF.Product
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    var lst = (List<FoodShopOnline.Models.EF.Product>)ViewBag.Lst;
+}
+
+<link href="~/Asset/Client/css/ALLProducts.css" rel="stylesheet" />
+<link href="~/Asset/Client/css/ProductDetail.css" rel="stylesheet" />
+<script type="text/javascript">
+    function getsp() {
+        var number = document.getElementById("gtri").value;
+        var idP = document.getElementById("idP").value;
+        window.location.href = "/them-gio-hang?productID=" + idP + "&quantity=" + number;
+    }
+</script>
+
+<div class="duongdan">
+    <a href="/trang-chu" title="Trang chủ">
+        Trang chủ
+    </a>
+    <a href="/@Model.ProductCategory.MetaTitle" title="@Model.ProductCategory.Name">
+        @Model.ProductCategory.Name
+    </a>
+    <a href="/@Model.ProductCategory.MetaTitle/@Model.MetaTitle" title="@Model.Name">
+        @Model.Name
+    </a>
+</div>
+
+
+<div class="content-main">
+    <div class="content-top">
+        <div class="content-top-left">
+            <img src="~/Asset/img/@Model.Image" alt="@Model.Name" />
+        </div>
+        <div class="content-top-right">
+            <div class="name">
+                <p>@Model.Name</p>
+            </div>
+            <div class="line"></div>
+            <p>@Model.Code</p>
+            <div class="price">
+                <p>@Model.Price đ</p>
+            </div>
+            <div class="mua-hang">
+                <form>
+                    Thêm vào giỏ hàng:
+                    <input class="num" type="number" id="gtri" name="gtri" value="1" />
+                    <input  id="idP" name="idP" value="@Model.ID" style="display:none;" />
+                    <input class="btn-m" type="button" id="btn" value="Mua hàng" onclick="getsp()" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="content-top-bot">
+        <div class="desc">
+            <h3>Thông tin chi tiết:</h3>
+            <p>@Model.Detail</p>
+        </div>
+        <div class="tag">
+            Tags:
+            <a href="#">@Model.Tags</a>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="content-bot">
+        <h2>MÓN ĂN CÙNG DANH MỤC</h2>
+        <div class="ds-san-pham">
+            @foreach (var item in lst)
+            {
+                <div class="san-pham">
+                    <a href="/@Model.ProductCategory.MetaTitle/@item.MetaTitle"><img src="~/Asset/img/@item.Image" alt="@item.Name" /></a>
+                    <a href="/@Model.ProductCategory.MetaTitle/@item.MetaTitle"><p>@item.Name</p></a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+

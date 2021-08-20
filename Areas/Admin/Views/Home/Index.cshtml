@@ -1,6 +1,8 @@
-﻿
+﻿@using FoodShopOnline.Common;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
-}
+    var session = (AdminLogin)Session[FoodShopOnline.Common.CommonConstants.USER_SESSION];
+} 
 
+<h1>Chào mừng: @session.Username</h1>

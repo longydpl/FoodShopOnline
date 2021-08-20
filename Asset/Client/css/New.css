@@ -1,0 +1,36 @@
+﻿.danh-sach-sp .new1 {
+    width: 940px;
+    background-color: #fff;
+    margin-top: 8px;
+}
+.new1{
+    display:flex;
+}
+.new1 .left{
+    margin:8px;
+    width:20%;
+    height:100%;
+}
+    .new1 .left >img{
+        border: 2px solid #ccc;
+    }
+.new1 .right {
+        margin: 8px;
+        width: 80%;
+        height: 100%;
+}
+    .new1 .right .title-news > a {
+        color: #f3a806;
+        text-decoration:none;
+        font-size:20px;
+    }
+    .new1 .right .date-time{
+        margin-top:8px;
+        opacity:0.7;
+    }
+    .new1 .right .content{
+        margin-top:8px;
+    }
+        .new1 .right .content > p > a {
+            color: #f3a806;
+        }

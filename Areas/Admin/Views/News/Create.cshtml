@@ -1,11 +1,11 @@
 ﻿@model FoodShopOnline.Models.EF.News
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Tạo mới tin tức";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Tạo mới tin tức</h2>
 
 
 @using (Html.BeginForm()) 
@@ -148,16 +148,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Tạo mới" class="btn btn-default" />
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }

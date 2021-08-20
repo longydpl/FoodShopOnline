@@ -1,0 +1,89 @@
+﻿@model List<FoodShopOnline.ViewModel.OrderDetails>
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var order = (FoodShopOnline.Models.EF.Order)ViewBag.Order;
+    decimal? sum = 0;
+}
+
+<h2>Chi tiết người mua</h2>
+<hr />
+<dl class="dl-horizontal">
+    <dt>
+        Họ tên
+    </dt>
+    <dd>
+        @order.ShipName
+    </dd>
+    <dt>
+        Địa chỉ
+    </dt>
+    <dd>
+        @order.ShipAddress
+    </dd>
+    <dt>
+        Số điện thoại
+    </dt>
+    <dd>
+        @order.ShipPhone
+    </dd>
+    <dt>
+        Notes
+    </dt>
+    <dd>
+        @order.Notes
+    </dd>
+    <dt>
+        Đã giao
+    </dt>
+    <dd>
+        @order.Status
+    </dd>
+</dl>
+
+
+<h2>Danh sách sản phẩm</h2>
+<table class="table">
+    <tr>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Giá
+        </th>
+        <th>
+            Thành tiền
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        decimal? tt = item.Quantity * item.Price;
+        sum += tt;
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @tt
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="2"></td>
+        <td>Thành tiền</td>
+        <td>@sum</td>
+    </tr>
+</table>
+
+<div>
+    @Html.ActionLink("Trở lại danh sách", "Index")
+</div>

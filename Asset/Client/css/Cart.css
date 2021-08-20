@@ -1,0 +1,105 @@
+﻿.section-group table{
+        background-color:#fff;
+        width:100%;
+}
+.section-group p{
+        color:#fff;
+        font-size:24px;
+        text-decoration:none;
+        margin-left:8px;
+}
+.section-group table {
+    margin-top: 32px;
+    margin: 10px;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    width: 98%;
+    background-color: #fff;
+    font-size: 14px;
+}
+        .section-group >table >thead {
+            width:100%;
+            height:30px;
+        }
+            .section-group > table > thead > tr {
+                background-color: #eaeaea;
+                line-height: 30px;
+                font-weight: 600;
+               
+            }
+                .section-group > table > thead > tr > td {
+                    text-align: center;
+                }
+.section-group > table > tbody {
+    text-align: center;
+   
+}
+    .section-group > table > tbody > tr > td > img {
+        width: 100%;
+        height: 100%;
+    }
+    .section-group > table > tbody > tr > td >a {
+        font-weight:600;
+        text-decoration: underline;
+        color: #333;
+    }
+.line{
+    border: 0.2px solid #ccc;
+}
+
+.section-group > table > tbody > tr > td > input{
+    width:60%;
+   
+}
+.section-group > table > tfoot >tr > td> p{
+    margin-left:90%;
+    width:80px;
+    height:30px;
+    color:#333;
+    font-size:16px;
+    font-weight:600;
+    align-content:center;
+    border-right:0.2px solid #ccc;
+
+}
+.cart-btn >button{
+}
+.section-group > table > tfoot > tr > td {
+    color: red;
+    font-weight: 600;
+    font-size: 16px;
+}
+#btnContinue {
+    width: 120px;
+    height: 30px;
+    margin-left: 400px;
+    background-color: #659705;
+    color:#fff;
+    border:none;
+    border-radius:5px ;
+}
+#btnUpdate {
+    width: 120px;
+    height: 30px;
+    background-color: #659705;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+#btnDeleteAll {
+    width: 100px;
+    height: 30px;
+    margin-left: 82px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+#btnPayment {
+    width: 100px;
+    height: 30px;
+    background-color:red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}

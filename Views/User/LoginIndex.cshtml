@@ -1,0 +1,72 @@
+﻿@model FoodShopOnline.Models.Dao.LoginClientModel
+@{
+    ViewBag.Title = "LoginIndex";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+<link href="~/Asset/Client/css/Login.css" rel="stylesheet" type="text/css" />
+<link href="~/Asset/Client/css/themify-icons/themify-icons.css" rel="stylesheet" type="text/css" />
+<div class="body-info">
+    @using (Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "login-form" }))
+    {
+        <p class="login-content">Quà Vặt Việt Login</p>
+        <div style="color:red">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </div>
+        <div class="user-name">
+            <i class="ti-user"></i>
+            Tài khoản
+            @Html.TextBoxFor(model => model.Username, new { @class="input"})
+        </div>
+        <div class="password">
+            <i class="ti-lock"></i>
+            Mật khẩu&nbsp;
+            @Html.PasswordFor(model => model.Password, new { @class = "input" })
+        </div>
+        <div class="remember">
+            <span class="checkbox-login">
+                <label for="" class="checkbox-lb">
+                    @Html.CheckBoxFor(model => model.RememberMe)
+                </label>
+                <p>Remember me</p>
+            </span>
+            <div class="forgot">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </div>
+        <button type="submit" class="input1">
+            Login
+        </button>
+        <div class="copyright">
+            <p>© 2021 Qua An Vat Login Form. All rights reserved | Design by Grop-7</p>
+        </div>
+    }
+    @*<div class="login-form">
+            <p class="login-content">Quà Vặt Việt Login</p>
+            <div class="user-name">
+                <i class="ti-user"></i>
+                <input type="text" name="name" value="User name">
+                <div class="login-line"></div>
+            </div>
+            <div class="password">
+                <i class="ti-lock"></i>
+                <input type="password" name="password" value="password">
+                <div class="login-line"></div>
+            </div>
+            <div class="remember">
+                <span class="checkbox-login">
+                    <label for="" class="checkbox-lb">
+                        <input type="checkbox" name="checked">
+                    </label>
+                    <p>Remember me</p>
+                </span>
+                <div class="forgot">
+                    <a href="#">Forgot Password?</a>
+                </div>
+            </div>
+            <input type="submit" value="Login">
+            <div class="copyright">
+                <p>© 2021 Qua An Vat Login Form. All rights reserved | Design by Grop-7</p>
+            </div>
+        </div>*@
+</div>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Món ăn vặt";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    var lst = (List<FoodShopOnline.Models.EF.ProductCategory>)ViewBag.List;
+}
+
+<div class="duongdan">
+    <a href="/trang-chu" title="Trang chủ">
+        Trang chủ
+    </a>
+    <a href="/@ViewBag.Meta" title="@ViewBag.Name">
+        @ViewBag.Name
+    </a>
+</div>
+
+<div>
+    <div class="des">
+        @ViewBag.CateDesc
+    </div>
+    <div>
+        @foreach(var item in lst)
+            {
+                <div class="image-1">
+                    <a href="/@item.MetaTitle"><img src="~/Asset/img/@item.Image" alt="null" /></a>
+                </div>
+                <div class="content">
+                    <a href="/@item.MetaTitle"><p>@item.Name</p></a>                    
+                </div>
+            }
+    </div>
+</div>
+

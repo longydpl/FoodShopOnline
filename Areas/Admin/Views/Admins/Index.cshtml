@@ -3,7 +3,7 @@
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh sách người quản trị";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -13,12 +13,13 @@
     @Html.ActionLink("Tạo tài khoản mới", "Create")
 </p>
 @using (Html.BeginForm())
-            {
+{
                 <p>
-                    Tìm tài khoản: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                    Tìm tài khoản: 
+                    @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
                     <input type="submit" value="Tìm" />
                 </p>
-            }
+ }
 <table class="table">
     <tr>
         <th>

@@ -1,7 +1,10 @@
 ﻿namespace FoodShopOnline.Models.EF
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("Admin")]
     public partial class Admins
@@ -10,7 +13,7 @@
 
         [Required(ErrorMessage = "Họ tên trống")]
         [StringLength(50)]
-        [Display(Name = "Họ tên")]
+        [Display(Name ="Họ tên")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Tài khoản trống")]
         [StringLength(50)]
@@ -20,8 +23,7 @@
         [StringLength(32)]
         [Display(Name = "Mật khẩu")]
         public string Password { get; set; }
-
-        [Display(Name = "Loại tài khoản")]
+        [Display(Name = "Loại")]
         public bool Type { get; set; }
         [Display(Name = "Tình trạng")]
         public bool Status { get; set; }

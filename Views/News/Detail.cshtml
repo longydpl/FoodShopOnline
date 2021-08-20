@@ -1,0 +1,41 @@
+﻿@model FoodShopOnline.Models.EF.News
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    var lst = (List<FoodShopOnline.Models.EF.News>)ViewBag.Lst;
+}
+
+<div class="duongdan">
+    <a href="/trang-chu" title="Trang chủ">
+        Trang chủ
+    </a>
+    <a href="/tin-tuc">
+        Tin tức
+    </a>
+    <a href="/tin-tuc/@Model.MetaTitle" >
+        @Model.Name
+    </a>
+</div>
+
+<div class="content">
+    <div class="title">
+        <div>
+            <p>@Model.Name</p>
+        </div>
+        <div class="date">
+            <p>@Model.CreatedDate</p>
+        </div>
+    </div>
+    <div class="detail">
+        <p>@Model.Detail</p>
+    </div>
+    <div class="content-bot">
+        <div>
+            <h3>Các loại tin khác:</h3>
+            @foreach(var item in lst)
+            {
+                <p><a href="/tin-tuc/@item.MetaTitle">@item.Name</a></p>
+            }
+        </div>
+    </div>
+</div>

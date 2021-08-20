@@ -1,7 +1,10 @@
 namespace FoodShopOnline.Models.EF
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("OderDetail")]
     public partial class OderDetail
@@ -17,8 +20,6 @@ namespace FoodShopOnline.Models.EF
         public long ProductID { get; set; }
 
         public int? Quantity { get; set; }
-
-        public bool Status { get; set; }
 
         public virtual Order Order { get; set; }
 

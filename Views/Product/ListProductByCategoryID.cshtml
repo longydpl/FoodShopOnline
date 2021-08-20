@@ -1,0 +1,138 @@
+﻿@model PagedList.IPagedList<FoodShopOnline.ViewModel.Products>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Asset/Client/css/ALLProducts.css" rel="stylesheet" />
+<link href="~/Asset/Client/css/ListProduct.css" rel="stylesheet" />
+@{
+    ViewBag.Title = @ViewBag.Name;
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    int count = (int)ViewBag.Count;
+}
+@section scripts{
+    <script src="~/Asset/Client/js/controller/ProductController.js"></script>
+}
+<div class="duongdan">
+    <a href="/trang-chu" title="Trang chủ">
+        Trang chủ
+    </a>
+    <a href="/@ViewBag.Meta" title="@ViewBag.Name">
+        @ViewBag.Name
+    </a>
+</div>
+
+<br />
+<div class="trang">
+    <p class="text">
+        Từ @ViewBag.Start đến @ViewBag.End (trong tổng số @ViewBag.Count sản phẩm)
+    </p>
+    @if (count > 5)
+    {
+        <div class="danh-sach">
+            @Html.PagedListPager(Model, page => Url.Action("ListProductByCategoryID", "Product", new { page }))
+        </div>
+    }
+</div>
+
+<div class="tie ">
+    <div class="tie-indent">
+        <div class="description">
+            <p>@ViewBag.CateDesc</p>
+        </div>
+    </div>
+</div>
+<div class="danh-sach-sp">
+    <div class="tie">
+        <div class="tie-indent">
+            <div class="btn-mua">
+                <form action="/them-gio-hang-all" method="post">
+                    <input id="gtri" name="gtri" style="display:none;" />
+                    <input type="submit" id="btn" value="Thêm vào giỏ hàng" />
+                </form>   
+            </div>
+            <div class="infor">
+                <table border="1" rules="all" >
+                    <tr>
+                        <th>Hình ảnh</th>
+                        <th>Tên</th>
+                        <th>Giá</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        string decr = item.Description.Substring(0, item.Description.Length - 30);
+                        <tr>
+                            <td>
+                                <div class="left">
+                                    <a href="@item.Url"><img src="~/Asset/img/@item.Image" alt="@item.ProductName" /></a>
+                                </div>
+                            </td>
+                            <td>
+                                <div >
+                                    <a class="name" chref="@item.Url">@item.ProductName</a>
+                                </div>
+                                <br />
+                                <div class="description">
+                                    @decr
+                                </div>
+                            </td>
+                            <td>
+                                <div class="right">
+                                    <p class="price">@item.Price đ</p>
+                                    <br />
+                                    <label>Chọn mua:</label>
+                                    <input type="checkbox" name="chkbox" value="@item.ID" />
+                                    <div class="muahang">
+                                        <a href="/them-gio-hang?productID=@item.ID&quantity=1">Mua hàng</a>
+                                    </div>
+        
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            <div class="btn-mua">
+                <form action="/them-gio-hang-all" method="post">
+                    <input id="gtri1" name="gtri1" style="display:none;" />
+                    <input type="submit" id="btn1" value="Thêm vào giỏ hàng" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (count > 5)
+{
+    <div class="trang">
+        <div class="danh-sach-bot">
+            @Html.PagedListPager(Model, page => Url.Action("ListProductByCategoryID", "Product", new { page }))
+        </div>
+    </div>
+}
+
+<script language="javascript">
+    document.getElementById('btn').onclick = function () {
+        // Khai báo tham số
+        var checkbox = document.getElementsByName('chkbox');
+        var result = "";
+        // Lặp qua từng checkbox để lấy giá trị
+        for (var i = 0; i < checkbox.length; i++) {
+            if (checkbox[i].checked === true) {
+                result += + checkbox[i].value + ' ';
+            }
+        }
+        document.getElementById('gtri').value = result;
+    };
+    document.getElementById('btn1').onclick = function () {
+        // Khai báo tham số
+        var checkbox = document.getElementsByName('chkbox');
+        var result = "";
+        // Lặp qua từng checkbox để lấy giá trị
+        for (var i = 0; i < checkbox.length; i++) {
+            if (checkbox[i].checked === true) {
+                result += + checkbox[i].value + ' ';
+            }
+        }
+        document.getElementById('gtri1').value = result;
+    };
+</script>

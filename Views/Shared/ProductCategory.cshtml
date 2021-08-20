@@ -1,0 +1,21 @@
+﻿@model List<FoodShopOnline.Models.EF.ProductCategory>
+
+<div class="header-bot">
+    <ul class="nav-bot">
+        @foreach (var item in Model)
+        {
+            if (item.ID == 1)
+            {
+        <li>
+            <a href="/@item.MetaTitle">@item.Name</a>
+            @{Html.RenderAction("ProductCategory1", "Home");}
+        </li>
+            }
+            else
+            {                
+                <li><a href="/@item.MetaTitle">@item.Name </a></li>
+            }
+
+        }
+    </ul>
+</div>

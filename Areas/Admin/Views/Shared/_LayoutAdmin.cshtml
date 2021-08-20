@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin -  Console</title>
+    <title>@ViewBag.Title</title>
 
     <!-- Custom fonts for this template-->
     <link href="~/Asset/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -73,8 +73,8 @@
                 </a>
                 <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        @Html.ActionLink("Danh sách danh mục", "Index", "Admins", null, new { @class = "collapse-item" })
-                        @Html.ActionLink("Danh sách sản phẩm", "Index", "Admins", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Danh sách danh mục", "Index", "ProductCategories", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Danh sách sản phẩm", "Index", "Products", null, new { @class = "collapse-item" })
                     </div>
                 </div>
             </li>
@@ -87,8 +87,8 @@
                 </a>
                 <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        @Html.ActionLink("Danh sách tin tức", "Index", "Admins", null, new { @class = "collapse-item" })
-                        @Html.ActionLink("Tạo mới tin tức", "Index", "Admins", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Danh sách tin tức", "Index", "News", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Tạo mới tin tức", "Create", "News", null, new { @class = "collapse-item" })
                     </div>
                 </div>
             </li>
@@ -100,8 +100,8 @@
                 </a>
                 <div id="collapseTwo3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        @Html.ActionLink("Đơn chưa giao", "Index", "Admins", null, new { @class = "collapse-item" })
-                        @Html.ActionLink("Đơn đã giao", "Index", "Admins", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Danh sách đơn hàng", "Index", "Orders", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Feedback người dùng", "Index", "Feedbacks", null, new { @class = "collapse-item" })
                     </div>
                 </div>
             </li>
@@ -132,7 +132,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="img-profile rounded-circle"
-                                     src="~/img/undraw_profile.svg">
+                                     src="~/Asset/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -192,7 +192,7 @@
                 <div class="modal-body">Chọn "Logout" để đăng xuất.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/Admin/Login/Index">Logout</a>
+                    @Html.ActionLink("Logout","Logout","Login",null, new { @class = "btn btn-primary" })
                 </div>
             </div>
         </div>

@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<FoodShopOnline.Models.EF.News>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh sách tin tức";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Danh sách tin tức</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -28,25 +25,7 @@
             @Html.DisplayNameFor(model => model.Image)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Detail)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreateBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifliedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifliedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MetaKeywords)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MetaDescription)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Status)
@@ -78,25 +57,7 @@
             @Html.DisplayFor(modelItem => item.Image)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Detail)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreateBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifliedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifliedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaKeywords)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaDescription)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Status)
@@ -108,9 +69,9 @@
             @Html.DisplayFor(modelItem => item.Tags)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Sửa", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

@@ -1,0 +1,106 @@
+﻿/* body */
+.body-info {
+    background-image: url('../img/img-login-regsiter.jpg');
+}
+/* login */
+.login-form {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-content {
+    padding-top: 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 63px;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 0.8em;
+    font-weight: 700;
+}
+
+.user-name,
+.password {
+    color: #fff;
+    display: flex;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width:70%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+}
+
+    .user-name .input,
+    .password .input {
+        flex: 1;
+        margin-top:0px;
+        margin-left:10px;
+    }
+
+    .user-name > i,
+    .password > i {
+        margin-bottom: -12px;
+        font-size: 30px;
+        color: #fff;
+        width: 50px;
+        height: 50px;
+    }
+
+.login-form .input {
+    width: 70%;
+    margin-top: 0px;
+    margin-left: 10px;
+    background: #fff;
+    color: #333;
+    font-size: 26px;
+    padding: 0.3em 1.2em;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+.login-form .input1 {
+    width: 70%;
+    margin-top: 16px;
+    margin-left: 86px;
+    background: #fff;
+    color: #333;
+    font-size: 26px;
+    padding: 0.3em 1.2em;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+.remember {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+}
+
+    .remember > span {
+        cursor: pointer;
+    }
+
+.forgot > a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.checkbox-lb {
+    margin-right: 8px;
+}
+
+.checkbox-login {
+    display: flex;
+}
+
+.copyright > p {
+    margin-top: 64px;
+    padding: 30px 0px;
+    text-align: center;
+    color: #fff;
+}
+/*  */

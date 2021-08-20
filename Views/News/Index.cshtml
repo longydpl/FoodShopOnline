@@ -1,0 +1,48 @@
+﻿@model PagedList.IPagedList<FoodShopOnline.Models.EF.News>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Asset/Client/css/ALLProducts.css" rel="stylesheet" />
+<link href="~/Asset/Client/css/New.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Tin tức";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+<div class="duongdan">
+    <a href="trang-chu" title="Trang chủ">
+        Trang chủ
+    </a>
+    <a href="tin-tuc" title="Tin tức">
+        Tin tức
+    </a>
+</div>
+
+
+<div class="danh-sach-sp">
+    @foreach (var item in Model)
+     {
+        string url = "tin-tuc/" + item.MetaTitle;
+        string de = item.Detail.Substring(0, 250);
+        <div class="new1">
+            <div class=" left">
+                <img src="~/Asset/img/buoi-sang-tran-nang-luong-voi-nhung-viec-lam-don-gian_thum-1005.jpg" alt="@item.Code" />
+            </div>
+            <div class="right">
+                <div class="title-news"><a href="@url">@item.Name</a></div>
+                <div class="date-time">@item.CreatedDate</div>
+                <div class="content">
+                    <p>
+                        @de
+                        ...<a href="@url">Xem thêm</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="trang">
+    <div class="danh-sach-bot">
+        @Html.PagedListPager(Model, page => Url.Action("Index", "News", new { page }))
+    </div>
+</div>

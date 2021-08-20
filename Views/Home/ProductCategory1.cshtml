@@ -1,0 +1,11 @@
+﻿@model List<FoodShopOnline.Models.EF.ProductCategory>
+
+<ul class="subnav-bot">
+    @foreach (var item in Model)
+    {
+        if (item.ParentID == 1)
+        {
+            <li><a href="@item.MetaTitle">@item.Name</a></li>
+        }
+    }
+</ul>

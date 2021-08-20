@@ -1,0 +1,279 @@
+﻿
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    var listTopProduct = (List<FoodShopOnline.ViewModel.Products>)ViewBag.ListTopProduct;
+    int flag = 0;
+    var listMonAnVat = (List<FoodShopOnline.ViewModel.Products>)ViewBag.MonAnVat;
+    var listMonChe = (List<FoodShopOnline.ViewModel.Products>)ViewBag.MonChe;
+    var listSuaChua = (List<FoodShopOnline.ViewModel.Products>)ViewBag.SuaChua;
+    var listSinhTo = (List<FoodShopOnline.ViewModel.Products>)ViewBag.SinhTo;
+    var listNuocEp = (List<FoodShopOnline.ViewModel.Products>)ViewBag.NuocEp;
+    var listHQDam = (List<FoodShopOnline.ViewModel.Products>)ViewBag.HoaQuaDam;
+    var listHQTuoi = (List<FoodShopOnline.ViewModel.Products>)ViewBag.HoaQuaTuoi;
+    var listTPTS = (List<FoodShopOnline.ViewModel.Products>)ViewBag.ThucPhamTuoiSong;
+}
+<link rel="stylesheet" href="~/Asset/Client/css/style.css">
+<div class="slidershow">
+    <div class="slides">
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        <input type="radio" name="radio-btn" id="radio4">
+        <div class="slide s1">
+            <a href="#">
+                <img src="~/Asset/Client/img/Home-img/slider-img/mit-nghe_s1149.png" alt="">
+            </a>
+        </div>
+        <div class="slide">
+            <a href="#">
+                <img src="~/Asset/Client/img/Home-img/slider-img/banh-ran-man_s1001.png" alt="">
+            </a>
+        </div>
+        <div class="slide">
+            <a href="#">
+                <img src="~/Asset/Client/img/Home-img/slider-img/banh-bot-loc_s1000.png" alt="">
+            </a>
+        </div>
+        <div class="slide">
+            <a href="#">
+                <img src="~/Asset/Client/img/Home-img/slider-img/thit-xien-nuong_s1002.png" alt="">
+            </a>
+        </div>
+        <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+            <label for="radio4" class="manual-btn"></label>
+        </div>
+        <div class="navigation-auto">
+            <div class="auto-btn1"></div>
+            <div class="auto-btn2"></div>
+            <div class="auto-btn3"></div>
+            <div class="auto-btn4"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var counter = 1;
+    setInterval(function () {
+        document.getElementById('radio' + counter).checked = true;
+        counter++;
+        if (counter > 4) {
+            counter = 1;
+        }
+    }, 4000);
+</script>
+<!-- food-box -->
+<div class="box">
+    <div class="box-items ">
+
+        <button onclick="prev()" type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+        <button onclick="next()" type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button>
+
+        <input type="radio" name="boxradio-btn" id="boxradio1">
+        <input type="radio" name="boxradio-btn" id="boxradio2">
+        <input type="radio" name="boxradio-btn" id="boxradio3">
+        <input type="radio" name="boxradio-btn" id="boxradio4">
+        <input type="radio" name="boxradio-btn" id="boxradio5">
+        <input type="radio" name="boxradio-btn" id="boxradio6">
+        <input type="radio" name="boxradio-btn" id="boxradio7">
+        <input type="radio" name="boxradio-btn" id="boxradio8">
+        @foreach (var item in listTopProduct)
+        {
+            if (flag == 0)
+            {
+                <div class="box-item b1">
+                    <div class="item-img">
+                        <a href="@item.Url"><img src="~/Asset/img/@item.Image" alt=""><p>@item.ProductName</p></a>
+                    </div>
+                    <div class="item-price">
+                        <p>@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên hệ")</p>
+                        <div class="item-detail">
+                            <a href="@item.Url">Chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                flag = 1;
+            }
+            else
+            {
+                <div class="box-item">
+                    <div class="item-img">
+                        <a href="@item.Url"><img src="~/Asset/img/@item.Image" alt=""><p>@item.ProductName</p></a>
+                    </div>
+                    <div class="item-price">
+                        <p>@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên hệ")</p>
+                        <div class="item-detail">
+                            <a href="@item.Url">Chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <script type="text/javascript">
+        var count = 1;
+        setInterval(function () {
+            document.getElementById('boxradio' + count).checked = true;
+            count++;
+            if (count > 8) {
+                count = 1;
+            }
+        }, 5000);
+        function next() {
+            document.getElementById('boxradio' + count).checked = true;
+            count++;
+            if (count > 8) {
+                count = 1;
+            }
+        }
+        function prev() {
+            document.getElementById('boxradio' + count).checked = true;            
+            count--;
+            if (count < 1) {
+                count = 1;
+            }
+        }
+
+    </script>
+</div>
+<!-- food-table -->
+<div class="food-tables">
+    <div class="table">
+        <p class="title">Món ăn vặt</p>
+        @foreach (var item in listMonAnVat)
+        {
+            <div class="table-item">
+                <div class="tableitem-img">
+                    <a href="@item.Url"><img src="~/Asset/img/@item.Image" alt=""><p>@item.ProductName</p></a>
+                </div>
+                <div class="tableitem-price">
+                    <p>@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên hệ")</p>
+                    <div class="tableitem-detail">
+                        <a href="@item.Url">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="table">
+        <p class="title">Chè</p>
+        @foreach (var item in listMonChe)
+        {
+            <div class="table-item">
+                <div class="tableitem-img">
+                    <a href="@item.Url"><img src="~/Asset/img/@item.Image" alt=""><p>@item.ProductName</p></a>
+                </div>
+                <div class="tableitem-price">
+                    <p>@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên hệ")</p>
+                    <div class="tableitem-detail">
+                        <a href="@item.Url">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="table">
+        <p class="title">Sữa chua</p>
+        @foreach (var item in listSuaChua)
+        {
+            <div class="table-item">
+                <div class="tableitem-img">
+                    <a href="@item.Url"><img src="~/Asset/img/@item.Image" alt=""><p>@item.ProductName</p></a>
+                </div>
+                <div class="tableitem-price">
+                    <p>@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên hệ")</p>
+                    <div class="tableitem-detail">
+                        <a href="@item.Url">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="table">
+        <p class="title">Sinh tố</p>
+        @foreach (var item in listSinhTo)
+        {
+            <div class="table-item">
+                <div class="tableitem-img">
+                    <a href="@item.Url"><img src="~/Asset/img/@item.Image" alt=""><p>@item.ProductName</p></a>
+                </div>
+                <div class="tableitem-price">
+                    <p>@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên hệ")</p>
+                    <div class="tableitem-detail">
+                        <a href="@item.Url">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="table">
+        <p class="title">Nước ép</p>
+        @foreach (var item in listNuocEp)
+        {
+            <div class="table-item">
+                <div class="tableitem-img">
+                    <a href="@item.Url"><img src="~/Asset/img/@item.Image" alt=""><p>@item.ProductName</p></a>
+                </div>
+                <div class="tableitem-price">
+                    <p>@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên hệ")</p>
+                    <div class="tableitem-detail">
+                        <a href="@item.Url">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="table">
+        <p class="title">Hoa quả dầm</p>
+        @foreach (var item in listHQDam)
+        {
+            <div class="table-item">
+                <div class="tableitem-img">
+                    <a href="@item.Url"><img src="~/Asset/img/@item.Image" alt=""><p>@item.ProductName</p></a>
+                </div>
+                <div class="tableitem-price">
+                    <p>@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên hệ")</p>
+                    <div class="tableitem-detail">
+                        <a href="@item.Url">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="table">
+        <p class="title">Hoa quả tươi</p>
+        @foreach (var item in listHQTuoi)
+        {
+            <div class="table-item">
+                <div class="tableitem-img">
+                    <a href="@item.Url"><img src="~/Asset/img/@item.Image" alt=""><p>@item.ProductName</p></a>
+                </div>
+                <div class="tableitem-price">
+                    <p>@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên hệ")</p>
+                    <div class="tableitem-detail">
+                        <a href="@item.Url">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="table">
+        <p class="title">Thực phẩm tươi sống</p>
+        @foreach (var item in listTPTS)
+        {
+            <div class="table-item">
+                <div class="tableitem-img">
+                    <a href="@item.Url"><img src="~/Asset/img/@item.Image" alt=""><p>@item.ProductName</p></a>
+                </div>
+                <div class="tableitem-price">
+                    <p>@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên hệ")</p>
+                    <div class="tableitem-detail">
+                        <a href="@item.Url">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
