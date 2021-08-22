@@ -1,0 +1,78 @@
+﻿.duongdan {
+    width: 940px;
+    margin: auto;
+    color: #fff;
+}
+
+    .duongdan a {
+        margin: 0 0 10px 0;
+        display: inline-block;
+        font-size: 14px;
+        border: 1px solid #599806;
+        text-decoration: none;
+        color: #599806;
+        padding: 4px 15px;
+        padding-right: 7px;
+    }
+
+        .duongdan a:first-child {
+        }
+
+        .duongdan a:last-child {
+            color: white;
+            background-color: #599806
+        }
+
+.content {
+    background-color: #fff;
+    width: 80%;
+}
+
+.title {
+    margin: 0 8px;
+    display: flex;
+}
+
+    .title > div {
+        margin-top: 16px;
+    }
+
+    .title > div {
+        font-size: 20px;
+        color: #333;
+    }
+
+.date {
+    padding-top: 16px;
+    margin-left: 50px;
+}
+
+    .date > p {
+        font-size: 14px;
+        opacity: 0.7;
+        color: #333;
+    }
+
+.line {
+    margin: auto;
+    width: 90%;
+    border: 0.1px solid #ccc;
+}
+
+.detail {
+    margin: 0 8px;
+    margin-top: 20px;
+}
+
+.content-bot {
+    margin-top: 16px;
+    margin-left: 8px;
+}
+
+    .content-bot > div > p {
+        color: orange;
+    }
+
+        .content-bot > div > p > a {
+            color: orange;
+        }

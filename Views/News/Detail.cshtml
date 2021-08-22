@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
     var lst = (List<FoodShopOnline.Models.EF.News>)ViewBag.Lst;
 }
-
+<link href="~/Asset/Client/css/DetailNew.css" rel="stylesheet" />
 <div class="duongdan">
     <a href="/trang-chu" title="Trang chủ">
         Trang chủ
@@ -12,7 +12,7 @@
     <a href="/tin-tuc">
         Tin tức
     </a>
-    <a href="/tin-tuc/@Model.MetaTitle" >
+    <a href="/tin-tuc/@Model.MetaTitle">
         @Model.Name
     </a>
 </div>
@@ -26,15 +26,17 @@
             <p>@Model.CreatedDate</p>
         </div>
     </div>
+    <div class="line">
+    </div>
     <div class="detail">
         <p>@Model.Detail</p>
     </div>
     <div class="content-bot">
         <div>
             <h3>Các loại tin khác:</h3>
-            @foreach(var item in lst)
+            @foreach (var item in lst)
             {
-                <p><a href="/tin-tuc/@item.MetaTitle">@item.Name</a></p>
+                <p>> <a href="/tin-tuc/@item.MetaTitle">@item.Name</a></p>
             }
         </div>
     </div>
