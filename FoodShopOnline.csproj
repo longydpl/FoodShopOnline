@@ -1865,6 +1865,7 @@
     <Content Include="Asset\Admin\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Asset\Client\css\AllProducts.css" />
     <Content Include="Asset\Client\css\Cart.css" />
+    <Content Include="Asset\Client\css\Contact.css" />
     <Content Include="Asset\Client\css\DetailNew.css" />
     <Content Include="Asset\Client\css\Login.css" />
     <Content Include="Asset\Client\css\New.css" />
@@ -2597,6 +2598,7 @@
     <Content Include="Views\Feedbacks\Index.cshtml" />
     <Content Include="Views\Feedbacks\Map.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\News\ChinhSach.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

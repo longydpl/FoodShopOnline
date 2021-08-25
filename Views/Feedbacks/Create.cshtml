@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
 }
 
-
+<link href="~/Asset/Client/css/Contact.css" rel="stylesheet" />
 <div class="main-info">
     <div class="form-main">
         @using (Html.BeginForm())
@@ -13,7 +13,7 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <hr />
+
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -56,8 +56,8 @@
                 </div>
 
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
+                <div class="form-group ">
+                    <div class="col-md-offset-2 col-md-10 btnn">
                         <input type="submit" value="Gửi" class="btn btn-default" />
                     </div>
                 </div>
@@ -72,6 +72,7 @@
         <p> Email: quavatviet@gmail.com﻿</p>
         <br />
         <p> Email: quavatviet@gmail.com﻿</p>
-        Điện thoại:   1900.0090
+        <br />
+        <p>Điện thoại:   1900.0090</p>
     </div>
 </div>

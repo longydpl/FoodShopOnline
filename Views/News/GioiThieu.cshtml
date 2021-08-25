@@ -1,8 +1,56 @@
-﻿
-@{
-    ViewBag.Title = "GioiThieu";
+﻿@{
+    ViewBag.Title = "Giới thiệu";
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    var lst = (List<FoodShopOnline.Models.EF.News>)ViewBag.Lst;
 }
+<link href="~/Asset/Client/css/DetailNew.css" rel="stylesheet" />
+<div class="duongdan">
+    <a href="/trang-chu" title="Trang chủ">
+        Trang chủ
+    </a>
+    <a href="/gioi-thieu">
+        Giới thiệu
+    </a>
+</div>
 
-<h2>GioiThieu</h2>
+<div class="content">
+    <div class="title">
+        <div>
+            <p>Khai trương thương hiệu bán hàng ăn vặt Online Quà Vặt Việt</p>
+        </div>
+        <div class="date">
+            <p>07/01/2020</p>
+        </div>
+    </div>
+    <div class="line">
+    </div>
+    <div class="detail">
+        <p>
+            Để mang đến cho quý khách hàng những giây phút thư giãn, thưởng thức "Ăn Vặt Phong Cách Việt" được thoải mái, thuận tiện và tuyệt vời nhất.
+            Chúng tôi thành lập thương hiệu Quà Vặt Việt. Là mô hình bán đồ Ăn vặt Online và phục vụ ăn tại cửa hàng, (Phục vụ cả hai hình thức là vừa bán hàng theo kiểu truyền thống là ăn tại chỗ và giao đến tận nơi cho khách hàng có nhu cầu khi đặt hàng qua số điện thoại đường dây nóng của chúng tôi).
+            Quý khách cũng cóthể chat, nhắn tin qua http://facebook.com/quavatviet , hoặc cũng có thể nhắn tin vào ứng dụng chat trong website quavatviet.com để đặt hàng.
+            Với những đầu bếp có kinh nghiệm nấu ăn trong các nhà hàng lâu năm, cùng với những con người trẻ trung và năng động, đã tạo nên
+            một thực đơn phong phú chất lượng với nhiều món ăn vặt ngon và hấp dẫn tất cả những tín đồ ăn vặt, cũng như tất cả mọi người không kể lứa tuổi và giới tính.
 
+            Quà Vặt Việt với Slogan "Ăn Vặt Phong Cách Việt" đã thể hiện rõ nét những món ăn vặt truyền thống của người Việt Nam từ xa xưa kết
+            hợp với hiện đại, theo kịp xu hướng mới để đáp ứng nhu cầu của các thực khách ngày nay! Đến với Quà Vặt Việt các bạn sẽ được phục vụ tận tình chu đáo từ khâu đóng gói, đến các vật dụng nhỏ nhất như cái tăm, giấy ăn...Các bạn sẽ cảm thấy thật sự hài lòng với dịch vụ của chúng tôi.
+            Quý khách đặt hàng vui lòng liên hệ theo địa chỉ sau:
+        </p>
+        <b>
+            ************************************************************************
+        </b> <br />
+        <b>Số 14, Ngõ 31 Mạc Thái Tổ, Cầu Giấy, Hà Nội﻿</b> <br />
+
+        <b>Email: kinhdoanh@quavatviet.vn | info@quavatviet.vn</b> <br />
+        <b>Website: http://www.quavatviet.com | www.quavatviet.vn</b> <br />
+        <b> Facebook: www.facebook.com/quavatviet</b> <br />
+        <b>Điện thoại:  1900.0090</b> <br />
+        <b> Rất hân hạnh được phục vụ quý khách!</b> <br />
+    </div>
+    <br />
+    <div class="content-bot">
+        <div>
+            <h3>Tags:</h3>
+        </div>
+    </div>
+</div>

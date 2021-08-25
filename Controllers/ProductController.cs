@@ -115,7 +115,12 @@ namespace FoodShopOnline.Controllers
 
         public ActionResult ProductDetail(string metatitle1)
         {
-            var model = db.Products.SingleOrDefault(p => p.MetaTitle == metatitle1); 
+            var model = db.Products.SingleOrDefault(p => p.MetaTitle == metatitle1);
+            if(model != null)
+            {
+                model.CountView += 1;
+            }    
+            db.SaveChanges();
             if (model == null)
             {
                 return HttpNotFound();

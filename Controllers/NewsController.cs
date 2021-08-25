@@ -42,5 +42,16 @@ namespace FoodShopOnline.Controllers
         {
             return View();
         }
+
+
+        public ActionResult ChinhSach(int? page)
+        {
+            var news = db.News.Select(x => x);
+            news = news.OrderBy(x => x.ID);
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            return View(news.ToPagedList(pageNumber, pageSize));
+        }
+
     }
 }

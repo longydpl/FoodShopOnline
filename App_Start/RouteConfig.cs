@@ -32,6 +32,13 @@ namespace FoodShopOnline
                defaults: new { controller = "Cart", action = "Index", id = UrlParameter.Optional },
                namespaces: new[] { "FoodShopOnline.Controllers" }
            );
+
+            routes.MapRoute(
+               name: "DangKyTc",
+               url: "dang-ky-thanh-cong",
+               defaults: new { controller = "User", action = "RegisterIndex", id = UrlParameter.Optional },
+               namespaces: new[] { "FoodShopOnline.Controllers" }
+           );
             routes.MapRoute(
                name: "TatCaMonAn",
                url: "tat-ca-mon-an",
@@ -84,6 +91,13 @@ namespace FoodShopOnline
             );
 
             routes.MapRoute(
+                name: "Contact1",
+                url: "lien-he-thanh-cong",
+                defaults: new { controller = "Feedbacks", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "FoodShopOnline.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "News",
                 url: "tin-tuc",
                 defaults: new { controller = "News", action = "Index", id = UrlParameter.Optional },
@@ -115,7 +129,7 @@ namespace FoodShopOnline
             routes.MapRoute(
                 name: "ChinhSach",
                 url: "chinh-sach",
-                defaults: new { controller = "News", action = "Index", id = UrlParameter.Optional },
+                defaults: new { controller = "News", action = "ChinhSach", id = UrlParameter.Optional },
                 namespaces: new[] { "FoodShopOnline.Controllers" }
             );
 
