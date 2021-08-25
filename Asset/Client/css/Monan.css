@@ -1,0 +1,64 @@
+﻿.duongdan {
+    width: 940px;
+    margin: auto;
+    color: #fff;
+}
+
+    .duongdan a {
+        margin: 0 0 10px 0;
+        display: inline-block;
+        font-size: 14px;
+        border: 1px solid #599806;
+        text-decoration: none;
+        color: #599806;
+        padding: 4px 15px;
+        padding-right: 7px;
+    }
+
+        .duongdan a:first-child {
+        }
+
+        .duongdan a:last-child {
+            color: white;
+            background-color: #599806
+        }
+
+.noidung {
+    width: 70%;
+}
+
+.des {
+    background-color: #599806;
+    color: #fff;
+    padding: 12px;
+}
+
+.anh {
+    background-color: #fff;
+}
+
+.monan {
+    margin: 16px;
+    display: inline-block;
+}
+
+.image-1 {
+    display: flex;
+    width: 33%;
+}
+
+    .image-1 > a > img {
+        width: 180px;
+        height: 120px;
+    }
+
+.content {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+    .content a {
+        font-size: 14px;
+        color: #333;
+        text-decoration: none;
+    }

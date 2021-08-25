@@ -1868,6 +1868,7 @@
     <Content Include="Asset\Client\css\Contact.css" />
     <Content Include="Asset\Client\css\DetailNew.css" />
     <Content Include="Asset\Client\css\Login.css" />
+    <Content Include="Asset\Client\css\Monan.css" />
     <Content Include="Asset\Client\css\New.css" />
     <Content Include="Asset\Client\css\ProductDetail.css" />
     <Content Include="Asset\Client\css\Register.css" />
